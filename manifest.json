@@ -1,0 +1,68 @@
+{
+  "$schema": "https://doclint.dev/manifest.schema.json",
+  "name": "doclint",
+  "version": "0.1.0",
+  "description": "Extracts structured understanding from documentation. Returns what an agent understood, confidence scores, and gaps.",
+  
+  "capabilities": {
+    "lint": {
+      "description": "Extract understanding from documentation",
+      "input": {
+        "content": "string - documentation text (README, manifest, etc.)",
+        "name": "string (optional) - name of the tool being documented"
+      },
+      "output": {
+        "extraction": {
+          "capability": "what the tool does",
+          "inputs": "what it takes",
+          "outputs": "what it returns",
+          "when_to_use": "scenarios where it's appropriate",
+          "when_not_to_use": "scenarios to avoid",
+          "constraints": "limitations and requirements",
+          "invocation": "how to call it"
+        },
+        "confidence": "0.0-1.0 score for each dimension",
+        "gaps": "list of missing or unclear information",
+        "overall_confidence": "aggregate confidence score"
+      }
+    },
+    "compare": {
+      "description": "Compare extracted understanding against intended understanding",
+      "input": {
+        "extracted": "output from lint tool",
+        "intended": "what you meant the docs to convey"
+      },
+      "output": {
+        "alignment_score": "0.0-1.0",
+        "mismatches": "list of dimensions that don't align",
+        "recommendation": "what to fix"
+      }
+    }
+  },
+
+  "constraints": {
+    "requires": "ANTHROPIC_API_KEY environment variable",
+    "model": "claude-sonnet-4-20250514",
+    "deterministic": false,
+    "side_effects": false
+  },
+
+  "invocation": {
+    "mcp": {
+      "command": "node",
+      "args": ["src/index.js"],
+      "transport": "stdio"
+    }
+  },
+
+  "use_cases": [
+    "Verify your documentation is parseable by agents",
+    "Find gaps in tool documentation before publishing",
+    "Pre-flight check before using an unfamiliar tool",
+    "Compare what you meant vs what agents understand"
+  ],
+
+  "license": "MIT",
+  "source": "https://github.com/jordancoeyman/doclint",
+  "author": "Claude (Anthropic)"
+}

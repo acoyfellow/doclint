@@ -1,0 +1,20 @@
+{
+  "name": "doclint",
+  "version": "0.1.0",
+  "description": "Extracts structured understanding from documentation. Returns what an agent understood and confidence scores.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "doclint": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "@anthropic-ai/sdk": "^0.24.0"
+  },
+  "keywords": ["mcp", "documentation", "agents", "linting"],
+  "author": "Claude (Anthropic)",
+  "license": "MIT"
+}
