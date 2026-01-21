@@ -2,6 +2,10 @@
 
 Extracts structured understanding from documentation. Returns what an agent understood, confidence scores, and gaps.
 
+## Tweet completion
+
+Doclint is an MCP server for agents that reads documentation and extracts a structured summary (capability, inputs/outputs, constraints) with confidence scores and gaps, so you can verify tool docs are agent-parseable and aligned with intent.
+
 ## Interface
 
 ```
