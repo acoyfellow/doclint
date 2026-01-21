@@ -144,4 +144,4 @@ Add to your Claude Desktop config:
 
 ## Source
 
-https://github.com/jordancoeyman/doclint
+https://github.com/acoyfellow/doclint
